@@ -7,19 +7,19 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="format-detection" content="telephone=no"/>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <title>PROJECTS</title>
+    <title>МЕНЮ</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- Links -->
-    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!--JS-->
     <script src="js/jquery.js"></script>
     <script src="js/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/rd-smoothscroll.min.js"></script>
-
+	<script src="js/mustache.min.js" type="text/javascript"></script>
 
     <!--[if lt IE 9]>
     <div style=' clear: both; text-align:center; position: relative;'>
@@ -41,15 +41,14 @@
       <div class="container top-sect">
         <div class="navbar-header">
           <h1 class="navbar-brand">
-            <a data-type='rd-navbar-brand'  href="./">business<small>company</small></a>
+            <a data-type='rd-navbar-brand'  href="./">Саттва</a>
           </h1>
           <a class="search-form_toggle" href="#"></a>
         </div>
 
         <div class="help-box text-right">
-          <p>Need help?</p>
-          <a href="callto:#">800-2345-6789</a>
-          <small><span>Hours:</span>  6am-4pm PST M-Th; &nbsp;6am-3pm PST Fri</small>
+          
+          <small><span>Години роботи:</span> 9:00 - 20:00 </small>
         </div>
       </div>
 
@@ -61,50 +60,26 @@
             <div class="">  
               <ul class="nav navbar-nav sf-menu" data-type="navbar">
                 <li>
-                  <a href="./">HOME</a>
+                  <a href="./">ГОЛОВНА</a>
                 </li>
                 <li>
-                  <a href="index-1.html">ABOUT</a>
+                  <a href="index-1.html">ПРО КОМПАНІЮ</a>
                 </li>
-                <li class="dropdown">
-                  <a href="index-2.html">SERVICES<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a href="#">Lorem ipsum</a>
-                    </li>
-                    <li>
-                      <a href="#">Dolor sit amet  </a>                      
-                    </li>
-                    <li>
-                      <a href="#">Conse ctetur </a>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a href="#">Latest</a>
-                          </li>
-                          <li>
-                            <a href="#">Archive</a>
-                          </li>                      
-                        </ul>
-                    </li>
-                  </ul>
-                </li>                
+                           
                 <li class="active">
-                  <a href="index-3.html">PROJECTS</a>
+                  <a href="index-3.html">МЕНЮ</a>
                 </li>
                 
                 <li>
-                  <a href="index-4.html">CONTACTS</a>
+                  <a href="index-4.html">КОНТАКТИ</a>
                 </li>
               </ul>                           
             </div>
         </nav>   
-        <form class="search-form" action="search.php" method="GET" accept-charset="utf-8">
-          <label class="search-form_label">
-            <input class="search-form_input" type="text" name="s" autocomplete="off" placeholder=""/>
-            <span class="search-form_liveout"></span>
-          </label>
-          <button class="search-form_submit fa-search" type="submit"></button>
-        </form>
+            <div class="phone-container">
+            	<p>Замовляйте за телефоном</p>
+            	<a class="phone-number" href="callto:#">(068) 225-20-60</a>
+            </div>
         </div>
 
       </div>  
@@ -119,141 +94,40 @@
         
         <div class="container center991">
           <h2>
-            our
-            <small>
-              products
-            </small>
+            МЕНЮ
           </h2>
-          <div class="row offs3">
-            <div class="col-md-4 col-sm-12 col-xs-12">
+<script id="menu_template" type="text/template">
+			{{#.}}
+			<div class="col-md-4 col-sm-12 col-xs-12 menu-item">
               <div class="thumbnail thumb-shadow">
-                <img src="images/page-4_img1.jpg" alt="">
+                <img src="{{imageUrl}}" alt="">
                 <div class="caption bg3 capt_hover1">
                   <h3>
-                    tumelit
+                    {{type}} : {{name}}
                   </h3>
                   <div class="wrap">
                     <p>
-                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod.
+                      {{description}}, {{price}}
                     </p>
                     <a href="#" class="btn-link fa-angle-right"></a>
                   </div>  
                 </div>
               </div>              
             </div>
-            <div class="col-md-8 col-sm-12 col-xs-12">
-              <div class="thumbnail thumb-shadow">
-                <img src="images/page-4_img2.jpg" alt="">
-                <div class="caption bg3 capt_hover1">
-                  <h3>
-                    Consequat ant
-                  </h3>
-                  <div class="wrap">
-                    <p class="thumb_ins1">
-                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod.
-                    </p>
-                    <a href="#" class="btn-link fa-angle-right"></a>
-                  </div>  
-                </div>
-              </div> 
-            </div>
-          </div>
+			{{/.}}
+</script>
+          <div id="menu-container" class="row offs3">
 
-          <div class="row">
-            <div class="col-md-4 col-sm-12 col-xs-12">
-              <div class="thumbnail thumb-shadow">
-                <img src="images/page-4_img3.jpg" alt="">
-                <div class="caption bg3 capt_hover1">
-                  <h3>
-                    Elementum 
-                  </h3>
-                  <div class="wrap">
-                    <p>
-                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod.
-                    </p>
-                    <a href="#" class="btn-link fa-angle-right"></a>
-                  </div>  
-                </div>
-              </div>              
-            </div>
-            <div class="col-md-4 col-sm-12 col-xs-12">
-              <div class="thumbnail thumb-shadow">
-                <img src="images/page-4_img4.jpg" alt="">
-                <div class="caption bg3 capt_hover1">
-                  <h3>
-                    altum 
-                  </h3>
-                  <div class="wrap">
-                    <p>
-                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod.
-                    </p>
-                    <a href="#" class="btn-link fa-angle-right"></a>
-                  </div>  
-                </div>
-              </div>              
-            </div>
-            <div class="col-md-4 col-sm-12 col-xs-12">
-              <div class="thumbnail thumb-shadow">
-                <img src="images/page-4_img5.jpg" alt="">
-                <div class="caption bg3 capt_hover1">
-                  <h3>
-                    Adipiscing
-                  </h3>
-                  <div class="wrap">
-                    <p>
-                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod.
-                    </p>
-                    <a href="#" class="btn-link fa-angle-right"></a>
-                  </div>  
-                </div>
-              </div>              
-            </div>
           </div>
-
-          <div class="row">
-            <div class="col-md-4 col-sm-12 col-xs-12">
-              <div class="thumbnail thumb-shadow">
-                <img src="images/page-4_img6.jpg" alt="">
-                <div class="caption bg3 capt_hover1">
-                  <h3>
-                    Sit amet
-                  </h3>
-                  <div class="wrap">
-                    <p>
-                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod.
-                    </p>
-                    <a href="#" class="btn-link fa-angle-right"></a>
-                  </div>  
-                </div>
-              </div>              
-            </div>
-            <div class="col-md-8 col-sm-12 col-xs-12">
-              <div class="thumbnail thumb-shadow">
-                <img src="images/page-4_img7.jpg" alt="">
-                <div class="caption bg3 capt_hover1">
-                  <h3>
-                    sectetuer 
-                  </h3>
-                  <div class="wrap">
-                    <p class="thumb_ins1">
-                      Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod.
-                    </p>
-                    <a href="#" class="btn-link fa-angle-right"></a>
-                  </div>  
-                </div>
-              </div> 
-            </div>
-          </div>
-        </div> 
-
+		</div>
       </section>
       
       <section class="well well2 bg1">
         <div class="container">
         <h2>
-        special
+        спеціальна 
           <small>
-            offer
+            пропозиція
           </small>
         </h2>
           <div class="row offs1">
@@ -281,8 +155,8 @@
    <section class="well1">
       <div class="container"> 
             <p class="rights">
-              Business Company &#169; <span id="copyright-year"></span>
-              <a href="index-5.html">Privacy Policy</a>
+              Саттва &#169; <span id="copyright-year"></span>
+              <a href="index-5.html">Політика конфіденційності</a>
             </p>          
       </div> 
     </section>    
@@ -296,7 +170,14 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/tm-scripts.js"></script>    
   <!-- </script> -->
-
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$.get("/api/food-list",function(data){
+			var template = $("#menu_template").html();
+			$("#menu-container").html(Mustache.render(template, data));
+		}, "json")
+	});
+	</script>
 
   </body>
 </html>
