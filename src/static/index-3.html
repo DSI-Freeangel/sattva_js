@@ -78,7 +78,7 @@
         </nav>   
             <div class="phone-container">
             	<p>Замовляйте за телефоном</p>
-            	<a class="phone-number" href="callto:#">(068) 225-20-60</a>
+            	<a class="phone-number" href="callto:+380682252060">(068) 225-20-60</a>
             </div>
         </div>
 
@@ -102,21 +102,22 @@
               <div class="thumbnail thumb-shadow">
                 <img src="{{imageUrl}}" alt="">
                 <div class="caption bg3 capt_hover1">
-                  <h3>
-                    {{type}} : {{name}}
+				  <span class="menu-item-type">{{type}}</span>
+                  <h3 class="menu-item-name">
+                    {{name}}
                   </h3>
                   <div class="wrap">
                     <p>
-                      {{description}}, {{price}}
+                      {{description}} 
                     </p>
-                    <a href="#" class="btn-link fa-angle-right"></a>
+					<span class="menu-item-price">{{price}} грн.<span>
                   </div>  
                 </div>
               </div>              
             </div>
 			{{/.}}
 </script>
-          <div id="menu-container" class="row offs3">
+          <div id="menu-container" class="row offs3 wow fadeIn"  data-wow-duration='2s'>
 
           </div>
 		</div>

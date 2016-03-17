@@ -68,30 +68,28 @@ function FoodDaoClass() {
 		pool.getConnection(function(err, connection) {
 			if (err) {
 				connection.release();
-				callback({
-					"code" : 100,
-					"status" : "Error in connection database"
-				});
+				callback(getConnectionErrorResponse(err));
 				return;
 			}
 
 			console.log('connected as id ' + connection.threadId);
 			console.log(sql);
-			connection.query(sql, function(err,
-					rows) {
+			connection.query(sql, function(err,	rows) {
 				connection.release();
 				if (!err) {
 					callback(model.mapList(rows, model.FOOD));
+				} else {
+					callback(getConnectionErrorResponse(err));
 				}
 			});
 
-			connection.on('error', function(err) {
-				callback({
-					"code" : 100,
-					"status" : "Error in connection database"
-				});
-				return;
-			});
 		});
+	};
+	
+	var getConnectionErrorResponse = function(err) {
+		return {
+			"code" : 100,
+			"status" : "Error in connection database"
+		}
 	};
 };

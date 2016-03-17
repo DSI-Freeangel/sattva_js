@@ -51,7 +51,7 @@
         </div>
 
         <div class="help-box text-right">
-          
+          <span class="header-slogan">Спробуй! Тобі сподобається!</span>
           <small><span>Години роботи:</span> 9:00 - 20:00 </small>
         </div>
       </div>
@@ -82,7 +82,7 @@
         </nav>   
             <div class="phone-container">
             	<p>Замовляйте за телефоном</p>
-            	<a class="phone-number" href="callto:#">(068) 225-20-60</a>
+            	<a class="phone-number" href="callto:+380682252060">(068) 225-20-60</a>
             </div>
         </div>
 
@@ -151,13 +151,15 @@
               <div class="thumbnail thumb-shadow">
                 <img src="{{imageUrl}}" alt="">
                 <div class="caption bg3 capt_hover1">
-                  <h3>
-                    {{type}} : {{name}}
+				  <span class="menu-item-type">{{type}}</span>
+                  <h3 class="menu-item-name">
+                    {{name}}
                   </h3>
                   <div class="wrap">
                     <p>
-                      {{description}}, {{price}}
+                      {{description}} 
                     </p>
+					<span class="menu-item-price">{{price}} грн.<span>
                     <a href="/index-3.html" class="btn-link fa-angle-right"></a>
                   </div>  
                 </div>
@@ -278,7 +280,7 @@
                   <address>
                     <dl>
                       <dt>Телефон: </dt>
-                      <dd class="phone"><a href="callto:#">(068) 225-20-60</a></dd>
+                      <dd class="phone"><a href="callto:+380682252060">(068) 225-20-60</a></dd>
                     </dl>
                     <dl>
                       <dt>Адреса: </dt>
