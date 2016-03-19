@@ -2733,15 +2733,15 @@ ol li a {
   margin-top: 10px;
 }
 /*================    Term list     =================*/
-.terms-list dt {
+.terms-list p.terms-title {
   font-weight: 400;
   color: #21c2f8;
   font-size: 15px;
 }
-.terms-list * + dt {
+.terms-list * + p.terms-title {
   margin-top: 31px;
 }
-.terms-list dt + * {
+.terms-list p.terms-title + * {
   margin-top: 12px;
 }
 .terms-list + * {
@@ -2753,6 +2753,19 @@ ol li a {
 .terms-list + *:hover {
   color: #222533;
   text-decoration: none;
+}
+.terms-list p, .terms-list div{
+	text-align: justify;
+}
+.terms-list ul, .terms-list ol {
+	padding-left: 40px;
+    list-style: initial;
+}
+.terms-list ul li ol, .terms-list ul li ol li {
+    list-style-type: decimal;
+}
+.terms-list ul li{
+    list-style: initial;
 }
 dl {
   padding: 0;
