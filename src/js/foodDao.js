@@ -67,7 +67,9 @@ function FoodDaoClass() {
 	var getData = function(sql, callback) {
 		pool.getConnection(function(err, connection) {
 			if (err) {
-				connection.release();
+				if(connection) {
+					connection.release();
+				}
 				callback(getConnectionErrorResponse(err));
 				return;
 			}
@@ -87,6 +89,7 @@ function FoodDaoClass() {
 	};
 	
 	var getConnectionErrorResponse = function(err) {
+		console.log("Connection eror: " + err);
 		return {
 			"code" : 100,
 			"status" : "Error in connection database"
