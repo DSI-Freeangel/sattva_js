@@ -42,7 +42,7 @@
 }
 .map .location dl dt {
   font-weight: 600;
-  color: #21c2f8;
+  color: #549c2d;
   display: inline-block;
   padding-right: 7px;
 }
@@ -54,7 +54,7 @@
   margin-top: 10px;
 }
 .map .location dl a:hover {
-  color: #21c2f8;
+  color: #549c2d;
 }
 @media (max-width: 1199px) {
   .map .location {

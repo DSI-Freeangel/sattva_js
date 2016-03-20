@@ -10,7 +10,7 @@
 
 .phone-number, .header-slogan {
 	display: block;
-	color: #21c2f8;
+	color: #549c2d;
 	font-size: 43px;
 	font-weight: 800;
 	line-height: 45px;
@@ -35,7 +35,7 @@
 }
 
 .phone-number:hover:before {
-	color: #21c2f8;
+	color: #549c2d;
 	font-size: 67px;
 }
 
