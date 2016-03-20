@@ -52,3 +52,19 @@
 	font-size: 27px;
 	float: right;
 }
+
+.about-section p {
+	text-indent: 40px;
+}
+
+.about-section img {
+	padding: 20px;
+}
+
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+}
