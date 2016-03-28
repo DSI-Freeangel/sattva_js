@@ -68,3 +68,21 @@
 .left {
 	float: left;
 }
+
+.social-buttons {
+	display:block;
+	float: right;
+	height: 35px;
+	width: 600px;
+	min-height: 35px;
+	-webkit-box-sizing: initial;
+    -moz-box-sizing: initial;
+    box-sizing: initial;
+    overflow: hidden;
+}
+
+.social-buttons * {
+	-webkit-box-sizing: initial;
+    -moz-box-sizing: initial;
+    box-sizing: initial;
+}
