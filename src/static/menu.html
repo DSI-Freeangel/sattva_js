@@ -7,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="format-detection" content="telephone=no"/>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <title>КОНТАКТИ</title>
+    <title>МЕНЮ</title>
     <meta name="title" content="Саттва (ведична кулінарія)" />
     <meta name="description" content='Кафе-ресторан ведичної кулінарії в Черкасах "Саттва"' />
     <link rel="image_src" href="http://sattva.ck.ua/images/fb_interior.jpg" />
@@ -38,15 +38,13 @@
     <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- Links -->
-    <link rel="stylesheet" href="css/contact-form.css">
-    <link rel="stylesheet" href="css/google-map.css">
     <link rel="stylesheet" href="css/style.css">
 
     <!--JS-->
     <script src="js/jquery.js"></script>
     <script src="js/jquery-migrate-1.2.1.min.js"></script>
-    <!--<script src="js/rd-smoothscroll.min.js"></script>-->
-
+    <script src="js/rd-smoothscroll.min.js"></script>
+	<script src="js/mustache.min.js" type="text/javascript"></script>
 
     <!--[if lt IE 9]>
     <div style=' clear: both; text-align:center; position: relative;'>
@@ -59,10 +57,19 @@
     <![endif]-->
     <script src='js/device.min.js'></script>
     
-    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+       <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 	<script type="text/javascript">stLight.options({publisher: "78f8bd33-cdef-495e-9fdb-72fca3bf0d62", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
   </head>
   <body>
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NL8NF3"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-NL8NF3');</script>
+	<!-- End Google Tag Manager -->
   <div class="page">
   <!--========================================================
                             HEADER
@@ -80,7 +87,7 @@
             </a>
           </h1>
         </div>
-        
+
 		  <div class="social-buttons">
           	&nbsp;
 			<span class='st_facebook_hcount' displayText='Facebook'></span>
@@ -89,7 +96,7 @@
 			<span class='st_odnoklassniki_hcount' displayText='Odnoklassniki'></span>
 			<span class='st_vkontakte_hcount' displayText='Vkontakte'></span>
           </div>
-
+          
         <div class="help-box text-right">
           <span class="header-slogan">Спробуй! Тобі сподобається!</span>
           <small><span>Години роботи:</span> 9:00 - 20:00 </small>
@@ -107,15 +114,15 @@
                   <a href="./">ГОЛОВНА</a>
                 </li>
                 <li>
-                  <a href="index-1.html">КУХНЯ</a>
+                  <a href="kitchen.html">КУХНЯ</a>
                 </li>
                            
-                <li>
-                  <a href="index-3.html">МЕНЮ</a>
+                <li class="active">
+                  <a href="menu.html">МЕНЮ</a>
                 </li>
                 
-                <li class="active">
-                  <a href="index-4.html">КОНТАКТИ</a>
+                <li>
+                  <a href="contact.html">КОНТАКТИ</a>
                 </li>
               </ul>                           
             </div>
@@ -134,107 +141,61 @@
 
     <main>        
 
-      <section> 
-        <div class="map map_height1">
-          <div id="google-map" class="map_model" data-zoom="16"></div>
-          <ul class="map_locations">
-            <li data-x="32.0683941" data-y="49.4387224" data-basic="images/gmap_marker.png" data-active="images/gmap_marker_active.png">
-              <div class="location">
-                <h3 class="txt-clr1">
-                  САТТВА
-                </h3>  
-                  <address>
-                    <dl>
-                      <dt>Телефон: </dt>
-                      <dd class="phone"><a href="callto:+380682252060">(068) 225-20-60</a></dd>
-                    </dl>
-                    <dl>
-                      <dt>Адреса: </dt>
-                      <dd>м. Черкаси, бульвар Шевченка, 268</dd>
-                    </dl>
-                    <dl>
-                      <dt>Години роботи: </dt>
-                      <dd> 9:00 - 20:00 </dd>
-                    </dl>
-                    <dl>
-                      <dt> Електронна пошта: </dt>
-                      <dd><a href="mailto:sattva.ck@gmail.com">sattva.ck@gmail.com</a></dd>
-                    </dl>
-                  </address>
-                
-              </div>
-            </li>
-          </ul>
+      <section class="well well4">
+        
+        <div class="container center991">
+          <h2>
+            МЕНЮ
+          </h2>
+<script id="menu_template" type="text/template">
+			{{#.}}
+			<div class="col-md-4 col-sm-12 col-xs-12 menu-item">
+              <div class="thumbnail thumb-shadow">
+                <img src="{{imageUrl}}" alt="">
+                <div class="caption bg3 capt_hover1">
+				  <span class="menu-item-type">{{type}}</span>
+                  <h3 class="menu-item-name">
+                    {{name}}
+                  </h3>
+                  <div class="wrap">
+                    <p>
+                      {{description}} 
+                    </p>
+					<span class="menu-item-price">{{price}} грн.<span>
+                  </div>  
+                </div>
+              </div>              
+            </div>
+			{{/.}}
+</script>
+          <div id="menu-container" class="row offs3 wow fadeIn"  data-wow-duration='2s'>
+
+          </div>
+		</div>
+      </section>
+      
+      <section class="well well2 bg1">
+        <div class="container">
+        <h2>
+        спеціальна 
+          <small>
+            пропозиція
+          </small>
+        </h2>
+          <div class="row offs1">
+            <div class="col-md-6 col-sm-12">
+              <p>
+                <b>Замовте стіл заздалегідь</b> і отримайте чай за рахунок закладу. Теплий чай прикрасить ваше очікування.
+              </p>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <p>
+				<b>У вас є можливість зробити нас краще.</b> Залиште ваш відгук або пропозицію на сайті чи за допомогою форми для відгуків і пропозицій. Ваша думка важлива для нас.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
-
-      <section class="well well4">
-        <div class="container">
-         
-              <h2>
-                контактна 
-                <small>
-                 форма
-                </small>
-              </h2>
-              <form id="contact-form" class='contact-form'>
-                <div class="contact-form-loader"></div>
-                <fieldset>
-                  <label class="name">
-                    <input type="text" name="name" placeholder="Ім’я:" value="" data-constraints="@Required @JustLetters"/>
-                    <span class="empty-message">*Це обовязкове поле.</span>
-                    <span class="error-message">*Введіть справжнє Ім’я.</span>
-                  </label>              
-              
-                  <label class="phone">
-                    <input type="text" name="phone" placeholder="Телефон:" value="" data-constraints="@JustNumbers"/>
-              
-                    <span class="empty-message">*Це обовязкове поле.</span>
-                    <span class="error-message">*Не правильний телефонний номер.</span>
-                  </label>
-
-                  <label class="email">
-                    <input type="text" name="email" placeholder="Електронна пошта:" value="" data-constraints="@Required @Email"/>
-                    
-                    <span class="empty-message">*Це обовязкове поле.</span>
-                    <span class="error-message">*Не правильна електронна пошта.</span>
-                  </label>
-              
-                  <label class="message">
-                    <textarea name="message" placeholder="Повідомлення" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
-              
-                    <span class="empty-message">*Це обовязкове поле.</span>
-                    <span class="error-message">*Повідомлення занадто коротке. Мінімальна довжина - 20 символів.</span>
-                  </label>
-              
-                 <!--  <label class="recaptcha"> <span class="empty-message">*This field is required.</span> </label> -->
-              
-                  <div class="btn-wr text-primary">
-                    <a class="btn btn-primary" href="#" data-type="submit">Надіслати повідомлення</a>
-                  </div>
-                </fieldset>
-                <div class="modal fade response-message">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                          &times;
-                        </button>
-                        <h4 class="modal-title">Modal title</h4>
-                      </div>
-                      <div class="modal-body">
-                        You message has been sent! We will be in touch soon.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </form>
-              
-                     
-        </div>        
-      </section>
-
-      
 
     </main>
 
@@ -246,7 +207,7 @@
       <div class="container"> 
             <div class="rights left">
               Саттва &#169; <span id="copyright-year"></span>
-              <a href="index-5.html">Політика конфіденційності</a>
+              <a href="privacy-policy.html">Політика конфіденційності</a>
             </div>
 	      <div class="right">
 	      	<span class='st_fbsub' displayText='Facebook Subscribe' st_username='sattva.ck.ua'></span>
@@ -264,7 +225,14 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/tm-scripts.js"></script>    
   <!-- </script> -->
-
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$.get("/api/food-list",function(data){
+			var template = $("#menu_template").html();
+			$("#menu-container").html(Mustache.render(template, data));
+		}, "json")
+	});
+	</script>
 
   </body>
 </html>

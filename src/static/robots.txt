@@ -1,0 +1,4 @@
+User-agent: *
+Host: sattva.ck.ua
+Sitemap: http://sattva.ck.ua/sitemap.xml
+Sitemap: http://sattva.ck.ua/sitemap.xml.gz
