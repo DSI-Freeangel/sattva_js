@@ -2,6 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var FoodDao = require('./js/foodDao');
 var EmailManager = require('./js/emailManager');
+var SiteMapGenerator = require('./js/sitemapCrawler');
+
 var app = express();
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({
@@ -29,4 +31,5 @@ app.post("/api/send-email", function(req, res) {
 
 app.listen(3000, function() {
 	console.log('Example app listening on port 3000!');
+	SiteMapGenerator.createSiteMap({baseURL : "http://sattva.ck.ua", fileBasePath: "./static/", priority: 0.8});
 });
