@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ua">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,7 +65,7 @@
     <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 	<script type="text/javascript">stLight.options({publisher: "78f8bd33-cdef-495e-9fdb-72fca3bf0d62", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
   </head>
-  <body itemscope itemtype="http://schema.org/Restaurant">
+  <body>
 	<!-- Google Tag Manager -->
 	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NL8NF3"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -75,7 +75,7 @@
 	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 	})(window,document,'script','dataLayer','GTM-NL8NF3');</script>
 	<!-- End Google Tag Manager -->
-  <div class="page">
+  <div class="page" itemscope itemtype="http://schema.org/Restaurant">
   <!--========================================================
                             HEADER
   =========================================================-->
@@ -114,27 +114,27 @@
         <nav class="navbar navbar-default navbar-static-top pull-left">
 
             <div class="">  
-              <ul class="nav navbar-nav sf-menu" data-type="navbar">
+              <ul class="nav navbar-nav sf-menu" data-type="navbar" itemscope itemtype="http://schema.org/SiteNavigationElement">
                 <li class="active">
-                  <a itemprop="menu" href="./">ГОЛОВНА</a>
+                  <a href="./">ГОЛОВНА</a>
                 </li>
                 <li>
-                  <a itemprop="menu" href="kitchen.html">КУХНЯ</a>
+                  <a itemprop="url" href="kitchen.html">КУХНЯ</a>
                 </li>
                            
                 <li>
-                  <a itemprop="menu" href="menu.html">МЕНЮ</a>
+                  <a itemprop="url" href="menu.html">МЕНЮ</a>
                 </li>
                 
                 <li>
-                  <a itemprop="menu" href="contact.html">КОНТАКТИ</a>
+                  <a itemprop="url" href="contact.html">КОНТАКТИ</a>
                 </li>
               </ul>                           
             </div>
         </nav>   
             <div class="phone-container">
             	<p>Замовляйте за телефоном</p>
-            	<a itemprop="telephone" class="phone-number" href="callto:+380682252060">(068) 225-20-60</a>
+            	<a class="phone-number" href="callto:+380682252060"><span itemprop="telephone">(068) 225-20-60</span></a>
             </div>
         </div>
 
@@ -160,7 +160,7 @@
                     <p>
                       Перегляньте меню і замовте прямо зараз.
                     </p>
-                    <a href="menu.html" class="btn-link fa-angle-right"></a>
+                    <a itemprop="menu" href="menu.html" class="btn-link fa-angle-right"></a>
                   </div>  
                 </div>
               </div>
@@ -317,14 +317,14 @@
                 <h3 itemprop="name" class="txt-clr1">
                   САТТВА
                 </h3>  
-                  <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                  <address>
                     <dl>
                       <dt>Телефон: </dt>
                       <dd class="phone"><a href="callto:+380682252060">(068) 225-20-60</a></dd>
                     </dl>
                     <dl>
                       <dt>Адреса: </dt>
-                      <dd><span itemprop="addressLocality">м. Черкаси</span>, <span itemprop="streetAddress">бульвар Шевченка, 268</span></dd>
+                      <dd itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><span itemprop="addressLocality">м. Черкаси</span>, <span itemprop="streetAddress">бульвар Шевченка, 268</span></dd>
                     </dl>
                     <dl>
                       <dt>Години роботи: </dt>
