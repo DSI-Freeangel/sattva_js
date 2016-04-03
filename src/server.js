@@ -29,6 +29,14 @@ app.post("/api/send-email", function(req, res) {
 	res.send("success");
 });
 
+//for bots
+app.get("/m/",function(req, res) {
+	res.redirect("/");
+});
+app.get("/mobile/",function(req, res) {
+	res.redirect("/");
+});
+
 app.listen(3000, function() {
 	console.log('Example app listening on port 3000!');
 	SiteMapGenerator.createSiteMap({baseURL : "http://sattva.ck.ua", fileBasePath: "./static/", priority: 0.8});
