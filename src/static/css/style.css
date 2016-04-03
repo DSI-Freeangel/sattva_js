@@ -86,3 +86,10 @@
 	-moz-box-sizing: initial;
 	box-sizing: initial;
 }
+
+.image-loading {
+	height: 370px;
+	width: 370px;
+	min-height: 370px;
+	min-width: 370px;
+}
