@@ -23,7 +23,7 @@ function FoodDaoClass() {
 			"ID" : "id",
 			"TYPE" : {
 				name : "type",
-				value : [ "Перші страви", "Другі страви", "Напої", "Десерти" ]
+				value : [ "Перші страви", "Другі страви", "Напої", "Десерти", "Салати"]
 			},
 			"NAME" : "name",
 			"DESCRIPTION" : "description",
