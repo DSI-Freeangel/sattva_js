@@ -8,6 +8,11 @@
 	display: block;
 }
 
+@media(max-width: 767px){
+	.phone-container {
+		display: none;
+	}
+}
 .phone-number, .header-slogan {
 	display: block;
 	color: #549c2d;
@@ -37,6 +42,19 @@
 .phone-number:hover:before {
 	color: #549c2d;
 	font-size: 67px;
+}
+
+@media (max-width: 1199px) {
+  .phone-number {
+    font-size: 18px;
+    line-height: normal;
+  }
+  .phone-number:before {
+  	font-size: 35px;
+  }
+  .phone-number:hover:before {
+	font-size: 35px;
+  }
 }
 
 .menu-item-type {
@@ -81,6 +99,14 @@
 	overflow: hidden;
 }
 
+@media(max-width: 620px){
+	.social-buttons {
+			height: 70px;
+			min-height: 70px;
+			width: 100%;
+	}
+}
+
 .social-buttons * {
 	-webkit-box-sizing: initial;
 	-moz-box-sizing: initial;
@@ -92,4 +118,33 @@
 	width: 370px;
 	min-height: 370px;
 	min-width: 370px;
+}
+@media (max-width: 1199px) {
+	.image-loading {
+			height: 303px;
+			width: 303px;
+			min-height: 303px;
+			min-width: auto;
+        }
+}
+@media (max-width: 991px) {
+	.image-loading {
+		height: 370px;
+		width: 370px;
+		min-height: 370px;
+		min-width: 370px;
+	}
+}
+@media(max-width: 400px){
+	.image-loading {
+		height: auto;
+		min-height: auto;
+		min-width: auto;
+		min-width: auto;
+	}
+}
+@media(max-width: 450px){
+	.rd-mobilepanel_title img {
+		display: none;
+	}
 }
