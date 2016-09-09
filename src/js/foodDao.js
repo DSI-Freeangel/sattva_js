@@ -13,6 +13,7 @@ function FoodDaoClass() {
 		host : 'mysql32571-env-8331644.mycloud.by',
 //		host : 'localhost',
 		user : 'root',
+//		password : '1111',
 		password : 'TBPdcm88707',
 		database : 'sattva',
 		debug : false

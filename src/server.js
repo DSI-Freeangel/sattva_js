@@ -1,10 +1,12 @@
 var express = require('express');
+var compress = require('compression');
 var bodyParser = require('body-parser');
 var FoodDao = require('./js/foodDao');
 var EmailManager = require('./js/emailManager');
 var SiteMapGenerator = require('./js/sitemapCrawler');
 
 var app = express();
+app.use(compress());
 app.use(express.static('static'));
 app.use(bodyParser.urlencoded({
 	extended : false
