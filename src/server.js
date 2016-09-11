@@ -1,21 +1,23 @@
 var express = require('express');
 var compress = require('compression');
 var bodyParser = require('body-parser');
-var cacheControl = require('express-cache-ctrl');
 var FoodDao = require('./js/foodDao');
 var EmailManager = require('./js/emailManager');
 var SiteMapGenerator = require('./js/sitemapCrawler');
 
 var app = express();
 app.use(compress());
-app.use(cacheControl.public(604800));//7 days
-app.use(express.static('static'));
+app.use(express.static('static', { maxAge: 604800000,	
+		setHeaders: function(res, path) {
+		    res.setHeader("Expires", new Date(Date.now() + 604800000).toUTCString());
+		}}
+        ));
 app.use(bodyParser.urlencoded({
 	extended : false
 }));
 
 
-app.get("/api/food-list", cacheControl.public(1800)/*30 minutes*/, function(req, res) {
+app.get("/api/food-list", function(req, res) {
 	console.log(req.url);
 	FoodDao.getActiveFoodItems("true" == req.query.featured, function(
 			responseObject) {
@@ -23,7 +25,7 @@ app.get("/api/food-list", cacheControl.public(1800)/*30 minutes*/, function(req,
 	});
 });
 
-app.post("/api/send-email", cacheControl.secure(), function(req, res) {
+app.post("/api/send-email", function(req, res) {
 	console.log(req.url);
 	EmailManager.sendEmail({
 		name : req.body.name,
