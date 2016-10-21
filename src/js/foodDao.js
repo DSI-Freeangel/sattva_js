@@ -62,7 +62,7 @@ function FoodDaoClass() {
 
 	this.getActiveFoodItems = function(featured, callback) {
 		return getData("SELECT * FROM FOOD WHERE ACTIVE=1"
-				+ (featured ? " AND FEATURED=1" : ""), callback);
+				+ (featured ? " AND FEATURED=1" : "") + " ORDER BY TYPE ASC, PRICE DESC", callback);
 	}
 
 	var getData = function(sql, callback) {
