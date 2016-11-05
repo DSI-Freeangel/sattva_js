@@ -1,4 +1,4 @@
-var mysql = require('mysql');
+var connection = require('./mysqlConnection');
 module.exports = {
 	getActiveFoodItems : function(featured, callback) {
 		return FoodDaoImpl.getActiveFoodItems(featured, callback);
@@ -8,17 +8,6 @@ module.exports = {
 var FoodDaoImpl = new FoodDaoClass();
 
 function FoodDaoClass() {
-	var pool = mysql.createPool({
-		connectionLimit : 10, // important
-		host : 'mysql32571-env-8331644.mycloud.by',
-//		host : 'localhost',
-		user : 'root',
-//		password : '1111',
-		password : 'TBPdcm88707',
-		database : 'sattva',
-		debug : false
-	});
-
 	var model = {
 		FOOD : {
 			"ID" : "id",
@@ -61,39 +50,15 @@ function FoodDaoClass() {
 	};
 
 	this.getActiveFoodItems = function(featured, callback) {
-		return getData("SELECT * FROM FOOD WHERE ACTIVE=1"
-				+ (featured ? " AND FEATURED=1" : "") + " ORDER BY TYPE ASC, PRICE DESC", callback);
-	}
-
-	var getData = function(sql, callback) {
-		pool.getConnection(function(err, connection) {
-			if (err) {
-				if(connection) {
-					connection.release();
-				}
-				callback(getConnectionErrorResponse(err));
-				return;
-			}
-
-			console.log('connected as id ' + connection.threadId);
-			console.log(sql);
-			connection.query(sql, function(err,	rows) {
-				connection.release();
-				if (!err) {
-					callback(model.mapList(rows, model.FOOD));
-				} else {
-					callback(getConnectionErrorResponse(err));
-				}
-			});
-
-		});
+		return connection.getList("SELECT * FROM FOOD WHERE ACTIVE=1"
+				+ (featured ? " AND FEATURED=1" : "") + " ORDER BY TYPE ASC, PRICE DESC", 
+				function(rows, error){
+					if(error) {
+						callback(error);
+					} else {
+						callback(model.mapList(rows, model.FOOD));
+					}
+				});
 	};
-	
-	var getConnectionErrorResponse = function(err) {
-		console.log("Connection eror: " + err);
-		return {
-			"code" : 100,
-			"status" : "Error in connection database"
-		}
-	};
+
 };

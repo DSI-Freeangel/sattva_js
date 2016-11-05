@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var FoodDao = require('./js/foodDao');
 var EmailManager = require('./js/emailManager');
 var SiteMapGenerator = require('./js/sitemapCrawler');
+var oauthserver = require('oauth2-server');
+var oAuthService = require('./js/OAuthService')
 
 var app = express();
 app.use(compress());
@@ -16,6 +18,19 @@ app.use(bodyParser.urlencoded({
 	extended : false
 }));
 
+app.oauth = oauthserver({
+	model : oAuthService,
+	grants : [ 'password' ],
+	debug : true
+});
+
+app.all('/oauth/token', app.oauth.grant());
+
+app.get('/api/admin', app.oauth.authorise(), function(req, res) {
+	res.send('Secret area');
+});
+
+app.use(app.oauth.errorHandler());
 
 app.get("/api/food-list", function(req, res) {
 	console.log(req.url);

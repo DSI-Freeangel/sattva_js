@@ -32,14 +32,14 @@
 							<tasks>
 								<echo
 									message="========== installing public dependencies ===================" />
-								<exec executable="npm.cmd" dir="${project.build.outputDirectory}"
+								<!--exec executable="npm.cmd" dir="${project.build.outputDirectory}"
+									failonerror="true">
+									<arg value="install" />
+								</exec-->
+								<exec executable="npm" dir="${project.build.outputDirectory}"
 									failonerror="true">
 									<arg value="install" />
 								</exec>
-								<!-- exec executable="npm" dir="${project.build.outputDirectory}"
-									failonerror="true">
-									<arg value="install" />
-								</exec -->
 							</tasks>
 						</configuration>
 						<goals>
